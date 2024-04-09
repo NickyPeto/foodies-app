@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy, signal, WritableSignal } from '@angular/core';
 import { RecipesServiceModel } from '../models/recipes-service-model';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment.local';
+import { environment } from 'src/environments/environment';
 import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Injectable({
