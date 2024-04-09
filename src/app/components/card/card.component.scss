@@ -14,7 +14,7 @@ $accent: mat.define-palette(mat.$amber-palette);
 }
 
 .mat-image {
-  border-radius: 9px; //12dp;
+  border-radius: 9px; /*12dp */
   width: inherit;
   max-height: 10rem;
 }
