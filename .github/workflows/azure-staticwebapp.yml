@@ -62,7 +62,7 @@ jobs:
         run: |
           npm install
           npm install -g @angular/cli
-          ng build --prod
+          ng build
 
       - name: Close Pull Request
         id: closepullrequest
