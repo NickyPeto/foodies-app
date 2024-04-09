@@ -1,0 +1,20 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$primary: mat.define-palette(mat.$deep-purple-palette);
+$accent: mat.define-palette(mat.$amber-palette);
+
+.mat-card-container {
+  background-color: map-get($map: $primary, $key: 100);
+  color: map-get($map: $primary, $key: 900);
+  width: 16rem;
+  max-height: 208px;
+  padding-bottom: 12px;
+}
+
+.mat-image {
+  border-radius: 9px; //12dp;
+  width: inherit;
+  max-height: 10rem;
+}

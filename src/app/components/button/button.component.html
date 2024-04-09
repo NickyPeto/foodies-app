@@ -1,0 +1,17 @@
+<ng-container [ngSwitch]="buttonType">
+  <span *ngSwitchCase="'mat-stroked-button'">
+    <button mat-stroked-button (click)="clickFunctionHandler()" color="primary">
+      {{ buttonName }}
+    </button>
+  </span>
+  <span *ngSwitchCase="'mat-raised-button'">
+    <button mat-raised-button (click)="clickFunctionHandler()" color="primary">
+      {{ buttonName }}
+    </button>
+  </span>
+  <span *ngSwitchDefault>
+    <button mat-button (click)="clickFunctionHandler()" color="primary">
+      {{ buttonName }}
+    </button>
+  </span>
+</ng-container>

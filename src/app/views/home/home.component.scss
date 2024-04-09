@@ -1,0 +1,68 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$primary: mat.define-palette(mat.$deep-purple-palette);
+$accent: mat.define-palette(mat.$amber-palette);
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app-header {
+  color: map-get($map: $primary, $key: 900);
+}
+
+.chip-header {
+  color: map-get($map: $primary, $key: 800);
+  margin-left: 6px;
+}
+
+.chip-group {
+  display: flex;
+
+  app-chip {
+    margin-left: 6px;
+  }
+}
+
+.cards-container {
+  display: flex;
+  width: 100%;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 6px;
+  align-items: center;
+}
+
+@media screen and (min-width: 860px) {
+  .app-input {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: row;
+    padding: 6px;
+  }
+
+  .cards-container {
+    display: grid;
+    margin-top: 12px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+    width: 100%;
+  }
+}

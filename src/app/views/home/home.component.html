@@ -1,0 +1,45 @@
+<div class="app-container">
+  <h2 class="app-header">What do we eat tonight?</h2>
+  <form class="app-form">
+    <mat-form-field class="app-input">
+      <input
+        #ingControl
+        matInput
+        placeholder="Ingredients"
+        [ngModel]="ingredient()"
+        type="text"
+        name="ing"
+        (ngModelChange)="ingredient.set($event)"
+      />
+    </mat-form-field>
+    <p class="chip-header">I have these ingredients..</p>
+    <div class="chip-group">
+      <ng-container *ngFor="let ingredient of ingredients()">
+        <app-chip *ngIf="ingredient" [ingredient]="ingredient"></app-chip>
+      </ng-container>
+    </div>
+    <div class="button-group">
+      <app-button
+        buttonName="Add ingredient"
+        buttonType="mat-stroked-button"
+        (clickFunction)="addIngredient(ingredient())"
+      ></app-button>
+      <app-button
+        buttonName="Clear Selection"
+        buttonType="mat-flat-button"
+        (clickFunction)="clearSelection()"
+      ></app-button>
+      <app-button
+        buttonType="mat-raised-button"
+        buttonName="Search"
+        (clickFunction)="getRecipes()"
+      ></app-button>
+    </div>
+  </form>
+
+  <div *ngIf="$recipes" class="cards-container">
+    <ng-container *ngFor="let recipe of $recipes | async">
+      <app-card [title]="recipe.title" [imgSrc]="recipe.image"></app-card>
+    </ng-container>
+  </div>
+</div>
