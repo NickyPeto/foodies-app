@@ -28,13 +28,6 @@ jobs:
         with:
           node-version: "20.x"
 
-      - name: Create env file
-        run: |
-          mkdir environments
-          echo "Creating environment file"
-          echo -n "export const environment =" > environment.ts
-          echo "${{ secrets.FOODIES_ENV }}" | base64 -d >> environment.ts
-
       - name: npm install and ng build # npm install and ng build
         run: |
           npm install
