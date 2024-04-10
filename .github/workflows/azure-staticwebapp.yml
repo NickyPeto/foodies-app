@@ -31,7 +31,8 @@ jobs:
         run: |
           mkdir environments
           echo "Creating environment file"
-          echo -n "export const environment =" > environments/environment.ts
+          cd environments
+          echo -n "export const environment =" > environment.ts
           echo ${{secrets.FOODIES_ENV}} | base64 -d
           >> environments/environment.ts
 
