@@ -60,8 +60,8 @@ jobs:
 
       - name: Replace placeholders
         run: |
-          sed -i 's/__API_URL__/${{ secrets.API_URL }}/g' environments/environment.prod.ts
-          sed -i 's/__API_KEY__/${{ secrets.API_KEY }}/g' environments/environment.prod.ts
+          sed -i 's/__API_URL__/${{ secrets.API_URL }}/g' environments/environment.ts
+          sed -i 's/__API_KEY__/${{ secrets.API_KEY }}/g' environments/environment.ts
 
       - name: npm install and ng build # npm install and ng build
         run: |
