@@ -36,6 +36,8 @@ jobs:
 
       - name: Replace placeholders
         run: |
+          cd src
+          cd environments
           sed -i 's|__API_URL__|${{ secrets.API_URL }}|g' environments/environment.ts
           sed -i 's|__API_KEY__|${{ secrets.API_KEY }}|g' environments/environment.ts
 
