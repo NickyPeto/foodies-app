@@ -12,7 +12,9 @@
         (ngModelChange)="ingredient.set($event)"
       />
     </mat-form-field>
-    <p class="chip-header">I have these ingredients..</p>
+    <p *ngIf="ingredients().length > 1" class="chip-header">
+      I have these ingredients..
+    </p>
     <div class="chip-group">
       <ng-container *ngFor="let ingredient of ingredients()">
         <app-chip *ngIf="ingredient" [ingredient]="ingredient"></app-chip>
@@ -36,10 +38,23 @@
       ></app-button>
     </div>
   </form>
+  <!-- <div class="cards-container" *ngIf="recipes">
+    <ng-container *ngFor="let recipe of recipes">
+      <app-card
+        [title]="recipe.title"
+        [imgSrc]="recipe.image"
+        [missingIngredients]="recipe.missedIngredients"
+      ></app-card>
+    </ng-container>
+  </div> -->
 
   <div *ngIf="$recipes" class="cards-container">
     <ng-container *ngFor="let recipe of $recipes | async">
-      <app-card [title]="recipe.title" [imgSrc]="recipe.image"></app-card>
+      <app-card
+        [title]="recipe.title"
+        [imgSrc]="recipe.image"
+        [missingIngredients]="recipe.missedIngredients"
+      ></app-card>
     </ng-container>
   </div>
 </div>

@@ -12,4 +12,7 @@ import { MatChipsModule } from '@angular/material/chips';
 export class ChipComponent {
   @Input()
   ingredient: string = '';
+
+  @Input()
+  missingIngredient: boolean = false;
 }

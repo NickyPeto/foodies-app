@@ -33,10 +33,10 @@ $accent: mat.define-palette(mat.$amber-palette);
 .cards-container {
   display: flex;
   width: 100%;
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 12px;
 }
 
 .button-group {

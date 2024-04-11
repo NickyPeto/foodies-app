@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { ChipComponent } from 'src/app/components/chip/chip.component';
+import { RecipesModel } from 'src/app/models/recipes-service-model';
+import { recipes } from 'src/app/dummy-data/dummy-data';
 
 @Component({
   selector: 'app-home',
@@ -34,11 +36,13 @@ import { ChipComponent } from 'src/app/components/chip/chip.component';
 export class HomeComponent {
   ingredient: WritableSignal<string> = signal('');
   ingredients: WritableSignal<string[]> = signal(['']);
-  $recipes: Observable<any>;
+  $recipes: Observable<RecipesModel[]>;
+  recipes: RecipesModel[];
 
   constructor(private recipeService: RecipesService) {
     this.ingredients = this.recipeService.concatSignals;
-    this.$recipes = this.recipeService.recipesObservable;
+    this.$recipes = this.recipeService.$recipes;
+    this.recipes = recipes;
   }
 
   getRecipes() {
@@ -47,6 +51,7 @@ export class HomeComponent {
 
   addIngredient(ingredient: string) {
     this.recipeService.addIngredientsToList(ingredient);
+    this.ingredient.set('');
   }
 
   clearSelection() {

@@ -1,5 +1,12 @@
 <mat-chip-set>
-  <mat-chip-option color="accent" selected disabled>{{
-    ingredient
-  }}</mat-chip-option>
+  <ng-container *ngIf="missingIngredient">
+    <mat-chip-option class="chip-missing-ingredient" color="warn" disabled>{{
+      ingredient
+    }}</mat-chip-option>
+  </ng-container>
+  <ng-container *ngIf="!missingIngredient">
+    <mat-chip-option class="chip-ingredient" color="accent" selected disabled>{{
+      ingredient
+    }}</mat-chip-option>
+  </ng-container>
 </mat-chip-set>

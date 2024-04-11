@@ -6,4 +6,10 @@
     alt="A picture of a recipe"
   />
   <mat-card-content>{{ title }}</mat-card-content>
+  <ng-container *ngFor="let missingIngredient of missingIngredients">
+    <app-chip
+      [missingIngredient]="true"
+      [ingredient]="missingIngredient.name"
+    ></app-chip>
+  </ng-container>
 </mat-card>

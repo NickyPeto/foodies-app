@@ -1,5 +1,8 @@
 import { Injectable, OnDestroy, signal, WritableSignal } from '@angular/core';
-import { RecipesServiceModel } from '../models/recipes-service-model';
+import {
+  RecipesModel,
+  RecipesServiceModel,
+} from '../models/recipes-service-model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, Subject, takeUntil } from 'rxjs';
@@ -9,9 +12,9 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 })
 export class RecipesService implements RecipesServiceModel, OnDestroy {
   private readonly cancellation = new Subject<boolean>();
-  readonly $recipes: Subject<any> = new Subject<any>();
+  readonly recipes: Subject<RecipesModel[]> = new Subject<RecipesModel[]>();
 
-  recipesObservable: Observable<any[]> = this.$recipes.asObservable();
+  $recipes: Observable<RecipesModel[]> = this.recipes.asObservable();
 
   parsedIngredients: WritableSignal<string> = signal('');
   concatSignals: WritableSignal<string[]> = signal(['']);
@@ -31,7 +34,7 @@ export class RecipesService implements RecipesServiceModel, OnDestroy {
         }&ingredients=${this.parsedIngredients()}`
       )
       .pipe(takeUntil(this.cancellation))
-      .subscribe((value) => this.$recipes.next(value));
+      .subscribe((value) => this.recipes.next(value as RecipesModel[]));
   }
 
   addIngredientsToList(ingredient: string) {
@@ -48,6 +51,6 @@ export class RecipesService implements RecipesServiceModel, OnDestroy {
   clearIngredientsInput() {
     this.parsedIngredients.set('');
     this.concatSignals.set(['']);
-    this.$recipes.next([]);
+    this.recipes.next([] as RecipesModel[]);
   }
 }
