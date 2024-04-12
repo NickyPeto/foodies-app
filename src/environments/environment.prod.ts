@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: import.meta.env['NG_API_URL'],
-  apiKey: import.meta.env['NG_API_KEY'],
+  apiUrl: 'https://api.spoonacular.com/recipes/findByIngredients',
+  apiKey: '3650c62bf1bb45eb97831cab46ea7aa2',
 };

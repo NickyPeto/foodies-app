@@ -38,7 +38,7 @@
       ></app-button>
     </div>
   </form>
-  <!-- <div class="cards-container" *ngIf="recipes">
+  <div class="cards-container" *ngIf="recipes">
     <ng-container *ngFor="let recipe of recipes">
       <app-card
         [title]="recipe.title"
@@ -46,15 +46,15 @@
         [missingIngredients]="recipe.missedIngredients"
       ></app-card>
     </ng-container>
-  </div> -->
-
+  </div>
+  <!--
   <div *ngIf="$recipes" class="cards-container">
-    <ng-container *ngFor="let recipe of $recipes | async">
+    <div class="card-wrapper" *ngFor="let recipe of $recipes | async">
       <app-card
         [title]="recipe.title"
         [imgSrc]="recipe.image"
         [missingIngredients]="recipe.missedIngredients"
       ></app-card>
-    </ng-container>
-  </div>
+    </div>
+  </div> -->
 </div>

@@ -1,0 +1,152 @@
+// Import Angular Material theme styles
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$primary-palette: (
+  50: #eeeaf2,
+  100: #d5cade,
+  200: #b9a7c8,
+  300: #9c83b2,
+  400: #8769a2,
+  500: #724e91,
+  600: #6a4789,
+  700: #5f3d7e,
+  800: #553574,
+  900: #422562,
+  A100: #cfa6ff,
+  A200: #b373ff,
+  A400: #9740ff,
+  A700: #8926ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+$secondary-palette: (
+  50: #fef8e6,
+  100: #fdeec1,
+  200: #fce398,
+  300: #fad76e,
+  400: #f9cf4f,
+  500: #f8c630,
+  600: #f7c02b,
+  700: #f6b924,
+  800: #f5b11e,
+  900: #f3a413,
+  A100: #ffffff,
+  A200: #fff9ee,
+  A400: #ffe5bb,
+  A700: #ffdca1,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$accent-palette: (
+  50: #fef8e6,
+  100: #fdeec1,
+  200: #fce398,
+  300: #fad76e,
+  400: #f9cf4f,
+  500: #f8c630,
+  600: #f7c02b,
+  700: #f6b924,
+  800: #f5b11e,
+  900: #f3a413,
+  A100: #ffffff,
+  A200: #fff9ee,
+  A400: #ffe5bb,
+  A700: #ffdca1,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$warn-palette: (
+  50: #fceaed,
+  100: #f7cad3,
+  200: #f2a7b6,
+  300: #ed8499,
+  400: #e96983,
+  500: #e54f6d,
+  600: #e24865,
+  700: #de3f5a,
+  800: #da3650,
+  900: #d3263e,
+  A100: #ffffff,
+  A200: #ffdce0,
+  A400: #ffa9b4,
+  A700: #ff909d,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$primary: mat.define-palette($primary-palette);
+$secondary: mat.define-palette($secondary-palette);
+$accent: mat.define-palette($accent-palette);
+$warn: mat.define-palette($warn-palette);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
+
+@include mat.all-component-colors($custom-theme);

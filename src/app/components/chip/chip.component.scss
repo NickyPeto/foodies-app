@@ -1,3 +1,9 @@
-.chip-missing-ingredient {
-  background-color: red;
-}
+@use "@angular/material" as mat;
+
+// .chip-ingredient {
+//   background-color: mat.get-theme-color($custom-theme, accent, 200) !important;
+// }
+
+// .chip-missing-ingredient {
+//   background-color: mat.get-theme-color($custom-theme, warn, 200) !important;
+// }

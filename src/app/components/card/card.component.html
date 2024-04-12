@@ -5,11 +5,13 @@
     [src]="imgSrc"
     alt="A picture of a recipe"
   />
-  <mat-card-content>{{ title }}</mat-card-content>
-  <ng-container *ngFor="let missingIngredient of missingIngredients">
-    <app-chip
-      [missingIngredient]="true"
-      [ingredient]="missingIngredient.name"
-    ></app-chip>
-  </ng-container>
+  <mat-card-header>{{ title }}</mat-card-header>
+  <mat-card-content>
+    <ng-container *ngFor="let missingIngredient of missingIngredients">
+      <app-chip
+        [missingIngredient]="true"
+        [ingredient]="missingIngredient.name"
+      ></app-chip>
+    </ng-container>
+  </mat-card-content>
 </mat-card>
